@@ -6,6 +6,9 @@ const {secret} = require("../config/key");
 const router = express.Router();
 const authorization = require("../middleware/authorization");
 
+router.get("/", authorization, (req, res) => {
+    res.status(200).json({err:false, message:"welcome Admin"});
+});
 
 //code for add Admin secure id and password uncomment when need 
 // router.post("/signup", async (req, res) => {

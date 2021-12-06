@@ -14,6 +14,7 @@ const authorization = async (req, res, next) => {
         if (!admin) {
             return res.status(404).json({ err: true, message:"Only Admin Can Access" });
         }
+        req.admin = admin;
         next();
     } catch (err) {
         console.log(err);
