@@ -6,33 +6,35 @@ const {secret} = require("../config/key");
 const router = express.Router();
 const authorization = require("../middleware/authorization");
 
-router.post("/signup", async (req, res) => {
-    try {
-        const userName = req.body.userName;
-        const password = req.body.password;
 
-        if (!userName || !password) {
-            return res.status(422).json({ err: true, message: "Fill All Field" });
-        }
+//code for add Admin secure id and password uncomment when need 
+// router.post("/signup", async (req, res) => {
+//     try {
+//         const userName = req.body.userName;
+//         const password = req.body.password;
 
-        const foundAdmin = await Admin.findOne({ userName: userName });
+//         if (!userName || !password) {
+//             return res.status(422).json({ err: true, message: "Fill All Field" });
+//         }
 
-        if (foundAdmin) {
-            return res.status(403).json({ err: true, message: "Admin Already Regitered" });
-        }
+//         const foundAdmin = await Admin.findOne({ userName: userName });
 
-        const admin = new Admin({
-            userName: userName,
-            password: password
-        });
+//         if (foundAdmin) {
+//             return res.status(403).json({ err: true, message: "Admin Already Regitered" });
+//         }
 
-        await admin.save();
+//         const admin = new Admin({
+//             userName: userName,
+//             password: password
+//         });
 
-        res.status(201).json({ err: false, message: "Admin Created" });
-    } catch (err) {
-        console.log(err);
-    }
-});
+//         await admin.save();
+
+//         res.status(201).json({ err: false, message: "Admin Created" });
+//     } catch (err) {
+//         console.log(err);
+//     }
+// });
 
 router.post("/signin", async (req, res) => {
     try {        
