@@ -11,6 +11,8 @@ dotenv.config({ path: "./Config/config.env"});
 require("./Connection/connection");
 
 app.use(require("./Admin/routes/auth"));
+app.use(require("./Dish/routes/getDish"));
+app.use(require("./Dish/routes/setDish"));
 
 app.listen(port, () => {
     console.log("Server Started at "+port);
