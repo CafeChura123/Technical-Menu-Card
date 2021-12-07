@@ -13,6 +13,7 @@ require("./Connection/connection");
 app.use(require("./Admin/routes/auth"));
 app.use(require("./Dish/routes/getDish"));
 app.use(require("./Dish/routes/setDish"));
+app.use(require("./Place Order/routes/placeOrder"));
 
 app.listen(port, () => {
     console.log("Server Started at "+port);
