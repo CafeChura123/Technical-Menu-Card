@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const Admin = require("../mongoDB/adminModel");
-const { secret } = require("../config/key");
+const Admin = require("../model/adminModel");
+const { secret } = require("../../Config/key");
 
 const authorization = async (req, res, next) => {
     try {
@@ -14,6 +14,7 @@ const authorization = async (req, res, next) => {
         if (!admin) {
             return res.status(404).json({ err: true, message:"Only Admin Can Access" });
         }
+        req.admin = admin;
         next();
     } catch (err) {
         console.log(err);
