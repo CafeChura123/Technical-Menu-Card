@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const Admin = require("../mongoDB/adminModel");
-const { secret } = require("../config/key");
+const Admin = require("../model/adminModel");
+const { secret } = require("../../Config/key");
 
 const authorization = async (req, res, next) => {
     try {

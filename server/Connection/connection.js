@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const { database } = require("../config/key");
+const { database } = require("../Config/key");
 
 mongoose.connect(database).then(() => {
     console.log("Connection Success");
